@@ -1208,7 +1208,7 @@ module FeedParserMixin
   def _start_content(attrsD)
     pushContent('content', attrsD, 'text/plain', true)
     src = attrsD['src']
-    if src && ! src.empty?:
+    if src && ! src.empty?
       @contentparams['src'] = src
     end
     push('content', true)
