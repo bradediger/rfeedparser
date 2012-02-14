@@ -988,7 +988,7 @@ module FeedParserMixin
     return if value.nil? || value.empty?
     context = getContext()
     tags = context['tags']
-    if value && ! value.empty? && ! tags.empty? && ! tags[-1]['term']:
+    if value && ! value.empty? && ! tags.empty? && ! tags[-1]['term']
       tags[-1]['term'] = value
     else
       addTag(value, nil, nil)
@@ -1047,7 +1047,7 @@ module FeedParserMixin
   def _end_guid
     value = pop('id')
     _save('guidislink', (@guidislink && ! getContext().has_key?('link')))
-    if @guidislink:
+    if @guidislink
       # guid acts as link, but only if 'ispermalink' is not present or is 'true',
       # and only if the item doesn't already have a link element
       _save('link', value)
@@ -1101,7 +1101,7 @@ module FeedParserMixin
       context = getContext()
       if @intextinput
         context['textinput']['description'] = value
-      elsif @inimage:
+      elsif @inimage
         context['image']['description'] = value
       end
     end
@@ -1170,7 +1170,7 @@ module FeedParserMixin
   alias :_start_itunes_summary :_start_summary
 
   def _end_summary
-    if @summaryKey == 'content':
+    if @summaryKey == 'content'
       _end_content()
     else
       popContent(@summaryKey || 'summary')
